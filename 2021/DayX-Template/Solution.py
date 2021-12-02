@@ -4,12 +4,13 @@
 # ------------------------------------------------
 # imports
 # ------------------------------------------------
+import pandas as pd
 
 # ------------------------------------------------
 # read and prepare input
 # ------------------------------------------------
-with open("input.txt") as f:
-    lines = f.readlines()
+
+data = pd.read_csv("input.csv", delim_whitespace=True, header=None)
 
 # ------------------------------------------------
 # Solution
