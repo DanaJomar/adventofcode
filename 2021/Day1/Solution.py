@@ -5,13 +5,12 @@
 # imports
 # ------------------------------------------------
 import numpy as np
+import pandas as pd
 
 # ------------------------------------------------
 # read and prepare input
 # ------------------------------------------------
-with open("input.txt") as f:
-    lines = f.readlines()
-depths = np.array([int(x.replace("\n", "")) for x in lines])
+depths = pd.read_csv("input.csv", delim_whitespace=True, names=["values"])
 
 # ------------------------------------------------
 # Solution
@@ -22,7 +21,7 @@ def get_number_of_increases(data_array):
 
 
 # number of increases in depth readings
-get_number_of_increases(depths)
+get_number_of_increases(depths["values"])
 ## 1688
 
 # ---------------- part 2 ----------------
@@ -31,5 +30,5 @@ def rolling_sum(data_array, window_size):
     return np.convolve(data_array, np.ones(window_size, dtype=int), "valid")
 
 
-get_number_of_increases(rolling_sum(depths, 3))
+get_number_of_increases(rolling_sum(depths["values"], 3))
 ## 1728
