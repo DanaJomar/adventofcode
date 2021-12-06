@@ -13,9 +13,15 @@ import pandas as pd
 init_state = pd.read_csv("input.csv", header=None).transpose()
 init_state.columns = ["days"]
 init_state = init_state.groupby("days").size().to_dict()
+
 # ------------------------------------------------
 # Solution
 # ------------------------------------------------
+# for mem optimization: save the number of fishes per day
+# as in {days: fish_cnt}
+# i.e.
+#   instead of [3,4,3,1,2]
+#   use {3:2, 4:1, 2:1}
 # ---------------- part 1 ----------------
 def update_state(state):
     new_state = {(x - 1): y for x, y in state.items() if x > -1}
@@ -31,13 +37,14 @@ def update_state(state):
 state = init_state
 for day in range(80):
     state = update_state(state)
-sum(state.values())
+
+print(sum(state.values()))
 ## 360268
 
 # ---------------- part 2 ----------------
 state = init_state
 for day in range(256):
     state = update_state(state)
-    # print("Ater " + str(day + 1) + " day(s): " + ",".join([str(x) for x in state]))
-sum(state.values())
+
+print(sum(state.values()))
 ## 1632146183902
