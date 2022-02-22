@@ -6,7 +6,6 @@
 # ------------------------------------------------
 import re
 import numpy as np
-import itertools
 
 # ------------------------------------------------
 # read and prepare input
