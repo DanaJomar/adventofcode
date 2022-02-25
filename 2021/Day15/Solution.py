@@ -74,10 +74,6 @@ def getPath(start, end, size_factor=1):
     return risk_to_cave[end]
 
 
-def manhattan(coord1, coord2):
-    return abs(coord1[0] - coord2[0]) + abs(coord1[1] - coord2[1])
-
-
 # ---------------- part 1 ----------------
 print(getPath(start, end))
 
