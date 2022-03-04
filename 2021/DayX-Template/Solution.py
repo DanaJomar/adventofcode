@@ -12,6 +12,9 @@ import pandas as pd
 
 data = pd.read_csv("input.csv", delim_whitespace=True, header=None)
 
+with open("input.csv", "r") as file:
+    lines = file.readlines()
+
 # ------------------------------------------------
 # Solution
 # ------------------------------------------------
